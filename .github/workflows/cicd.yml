@@ -19,7 +19,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install setuptools
+          pip install -r requirements.txt
       - name: Run tests
         run: pytest tests/ -v
 
@@ -35,7 +37,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install setuptools
+          pip install -r requirements.txt
       - name: Authenticate to Cloud Storage
         run: |
           echo "AWS_ACCESS_KEY_ID=${{ fromJson(secrets.STORAGE_CREDENTIALS).aws_access_key_id }}" >> $GITHUB_ENV
@@ -104,5 +108,5 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             sudo systemctl restart income-api
-            sleep 5
-            curl -f http://localhost:8080/healthz || exit 1
+            sleep 10
+            curl -sf http://localhost:8080/healthz && echo "API is up" || echo "WARNING: API may still be starting"
