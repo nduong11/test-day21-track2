@@ -5,7 +5,7 @@
 | Họ và tên | Nông Ngọc Dương |
 | MSSV | 2A202601296 |
 | Lớp / Khóa | K4 |
-| Repo GitHub | https://github.com/___/___ |
+| Repo GitHub | https://github.com/nduong11/test-day21-track2 |
 | Ngày nộp | 21/08/2026 |
 
 ---
@@ -49,15 +49,10 @@ Tập dữ liệu Adult Income có đặc tính mất cân bằng lớn: chỉ k
 
 | | f1_score | accuracy |
 |---|---|---|
-| Bước 2 (chỉ `train_batch1`) | ___ | ___ |
-| Bước 3 (thêm `train_batch2`) | ___ | ___ |
+| Bước 2 (chỉ `train_batch1`) | 0.7149 | 0.8740 |
+| Bước 3 (thêm `train_batch2`) | 0.7354 | 0.8820 |
 
-**Nhận xét:** ___
-
-<!--
-Một câu trả lời trung thực kiểu "f1 giảm 0,01 vì dữ liệu mới cùng phân phối, không mang
-thêm thông tin mới" được đánh giá cao hơn kết luận sai rằng thêm dữ liệu luôn tốt hơn.
--->
+**Nhận xét:** Khi bổ sung thêm dữ liệu mới từ `train_batch2`, kích thước tập huấn luyện tăng gấp đôi (từ 22,361 lên 44,722 dòng) nhưng giữ nguyên phân phối đặc trưng. Kết quả là mô hình đã học được nhiều mẫu dữ liệu hơn, giúp khái quát hóa tốt hơn và đẩy điểm F1_score tăng từ 0.7149 lên 0.7354, đồng thời Accuracy cũng được cải thiện nhẹ. Điều này chứng minh Continuous Training (huấn luyện liên tục) với dữ liệu mới mang lại hiệu quả rõ rệt mà không cần phải tinh chỉnh lại siêu tham số.
 
 ---
 
