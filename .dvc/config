@@ -1,4 +1,4 @@
 [core]
     remote = labstore
 ['remote "labstore"']
-    url = s3://TEN_BUCKET_CUA_BAN/dvc
+    url = s3://bucket-nduong-track2-day21/dvc
